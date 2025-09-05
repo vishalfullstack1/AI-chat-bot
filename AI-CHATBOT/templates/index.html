@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipra AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'Adobe Express - file.png.webp') }}"
+        type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="header-nav">
+                <p>Shipra - Your AI Assistant</p>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        {% for message in chat_history %}
+        <div class="l-f-chat-box">
+            <!-- <img src="{{ url_for('static', filename='message-removebg-preview.png') }}" alt="message-not-found"> -->
+            <img src="{{ url_for('static', filename='user.webp') }}" alt="message-not-found">
+            <p>{{ message["user"] }}</p>
+        </div>
+
+        <div class="r-f-chat-box">
+            <img src="{{ url_for('static', filename='Adobe Express - file.png.webp') }}" alt="bot-not-found">
+            <p>{{ message["bot"] }}</p>
+        </div>
+        {% endfor %}
+    </section>
+    <footer>
+        <form action="/chat" method="POST" class="input-box">
+            <textarea name="text" id="text" placeholder="Type your message here..."></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </footer>
+    <script>
+        window.onload = function () {
+            window.scrollTo(0, document.body.scrollHeight);
+        };
+    </script>
+
+</body>
+
+</html>

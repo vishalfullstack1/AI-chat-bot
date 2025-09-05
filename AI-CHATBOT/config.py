@@ -1,0 +1,4 @@
+open_ai = "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"
+
+secret_key = "vishal_799"
+
